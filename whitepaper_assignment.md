@@ -21,6 +21,7 @@ kube-proxy offers three modes of operation:
 ### Which mode to select?
 Despite the non-optimal structure of iptables (*as the number of Services increase, the list of chains and rules can become very long*), this mode still ensures good load-balancing performance in most cases, if the total number of Services doesn’t reach 1000.
 ![kube_proxy_modes](images/modes_difference.png)
+
 In short, if the total number of configured Services is in the **thousands**, you should use kube-proxy in the ipvs mode, otherwise the iptables mode will be enough for load-balancing.
 # Conclusion
 Kubernetes Services provide a convenient and safe way to organize access to the resources in your Deployment via a stable IP address. You can choose the type of the Service according to your Deployment needs and run the Service in the mode that corresponds to your workload scale.   
